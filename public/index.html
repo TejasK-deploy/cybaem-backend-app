@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini CRM</title>
+</head>
+<body>
+  <h1>Mini CRM Dashboard</h1>
+  <p>This is a sample frontend.</p>
+
+  <button onclick="loadUsers()">View Users</button>
+  <pre id="output"></pre>
+
+  <script>
+    function loadUsers() {
+      fetch('/api/users')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("output").innerText =
+            JSON.stringify(data, null, 2);
+        });
+    }
+  </script>
+</body>
+</html>
